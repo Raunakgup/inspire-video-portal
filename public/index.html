@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Inspiring Stories Portal</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="logo">Inspiring Stories</h1>
+    <div class="top-actions">
+      <button id="btn-go-profile" class="btn">Go to your profile</button>
+      <button id="btn-add-profile" class="btn primary">Add profile</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="featured" class="featured">
+      <h2>Watch a few inspiring stories...</h2>
+      <div id="carousel" class="carousel">
+        <!-- carousel items inserted by JS -->
+      </div>
+      <div id="player-area" class="player">
+        <video id="main-video" controls width="720" preload="metadata"></video>
+        <div id="video-meta" class="video-meta"></div>
+        <div id="comments-section" class="comments">
+          <h3>Comments</h3>
+          <div id="comments-list"></div>
+          <textarea id="comment-text" placeholder="Add a comment"></textarea>
+          <div class="comment-actions">
+            <input id="comment-name" placeholder="Your name (optional)" />
+            <button id="btn-add-comment" class="btn">Add comment</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="more-videos" class="more-videos">
+      <h2>More videos</h2>
+      <div id="videos-grid" class="grid"></div>
+    </section>
+  </main>
+
+  <nav class="floating-actions">
+    <button id="btn-your-videos" class="btn" disabled>Your Videos</button>
+    <button id="btn-add-video" class="btn primary" disabled>Add a video</button>
+  </nav>
+
+  <!-- Modals -->
+  <div id="modal-overlay" class="modal-overlay hidden"></div>
+
+  <div id="modal-add-profile" class="modal hidden">
+    <h3>Add profile</h3>
+    <form id="form-add-profile">
+      <input name="name" placeholder="Full name" required />
+      <input name="mobile" placeholder="Mobile number" />
+      <input name="email" placeholder="Email id" />
+      <select name="type" required>
+        <option value="">Select type</option>
+        <option value="student">Student</option>
+        <option value="working">Working</option>
+      </select>
+      <textarea name="description" placeholder="Description (optional)"></textarea>
+      <div class="modal-actions">
+        <button type="submit" class="btn primary">Add profile</button>
+        <button type="button" id="close-add-profile" class="btn">Cancel</button>
+      </div>
+      <div id="add-profile-result" class="result"></div>
+    </form>
+  </div>
+
+  <div id="modal-login" class="modal hidden">
+    <h3>Go to your profile</h3>
+    <form id="form-login">
+      <input name="code" placeholder="Enter your code" required />
+      <div class="modal-actions">
+        <button type="submit" class="btn primary">Go</button>
+        <button type="button" id="close-login" class="btn">Cancel</button>
+      </div>
+      <div id="login-result" class="result"></div>
+    </form>
+  </div>
+
+  <div id="modal-add-video" class="modal hidden">
+    <h3>Add a video</h3>
+    <form id="form-add-video" enctype="multipart/form-data">
+      <input name="title" placeholder="Video title" required />
+      <input name="video" type="file" accept="video/*" required />
+      <input name="thumbnail" type="file" accept="image/*" />
+      <textarea name="description" placeholder="Description (optional)"></textarea>
+      <div class="modal-actions">
+        <button type="submit" class="btn primary">Upload</button>
+        <button type="button" id="close-add-video" class="btn">Cancel</button>
+      </div>
+      <div id="add-video-result" class="result"></div>
+    </form>
+  </div>
+
+  <div id="modal-your-videos" class="modal hidden">
+    <h3>Your Videos</h3>
+    <div id="your-videos-list"></div>
+    <div class="modal-actions">
+      <button type="button" id="close-your-videos" class="btn">Close</button>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
