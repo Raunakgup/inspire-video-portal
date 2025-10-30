@@ -10,7 +10,8 @@
   <header class="topbar">
     <h1 class="logo">Inspiring Stories</h1>
     <div class="top-actions">
-      <button id="btn-go-profile" class="btn">Go to your profile</button>
+      <!-- changed label to "Log In" for first-time visitors -->
+      <button id="btn-go-profile" class="btn">Log In</button>
       <button id="btn-add-profile" class="btn primary">Add profile</button>
     </div>
   </header>
@@ -18,15 +19,19 @@
   <main class="container">
     <section id="featured" class="featured">
       <h2>Watch a few inspiring stories...</h2>
-      <div id="carousel" class="carousel">
-        <!-- carousel items inserted by JS -->
-      </div>
+      <div id="carousel" class="carousel"></div>
+
       <div id="player-area" class="player">
         <video id="main-video" controls width="720" preload="metadata"></video>
         <div id="video-meta" class="video-meta"></div>
+
         <div id="comments-section" class="comments">
           <h3>Comments</h3>
           <div id="comments-list"></div>
+
+          <!-- result/feedback for comments -->
+          <div id="add-comment-result" style="margin:6px 0; color:green; display:none;"></div>
+
           <textarea id="comment-text" placeholder="Add a comment"></textarea>
           <div class="comment-actions">
             <input id="comment-name" placeholder="Your name (optional)" />
@@ -71,7 +76,7 @@
   </div>
 
   <div id="modal-login" class="modal hidden">
-    <h3>Go to your profile</h3>
+    <h3>Log in with your code</h3>
     <form id="form-login">
       <input name="code" placeholder="Enter your code" required />
       <div class="modal-actions">
@@ -86,8 +91,20 @@
     <h3>Add a video</h3>
     <form id="form-add-video" enctype="multipart/form-data">
       <input name="title" placeholder="Video title" required />
+
+      <!-- only the required video file is shown by default -->
+      <label style="display:block;margin:6px 0">Video file (required)</label>
       <input name="video" type="file" accept="video/*" required />
-      <input name="thumbnail" type="file" accept="image/*" />
+
+      <!-- optional thumbnail is hidden until user chooses to add it -->
+      <div style="margin-top:8px;">
+        <label><input id="toggle-thumbnail" type="checkbox" /> Add thumbnail (optional)</label>
+      </div>
+      <div id="thumbnail-wrapper" style="display:none;margin-top:8px;">
+        <label style="display:block;margin-bottom:4px">Thumbnail image</label>
+        <input name="thumbnail" type="file" accept="image/*" />
+      </div>
+
       <textarea name="description" placeholder="Description (optional)"></textarea>
       <div class="modal-actions">
         <button type="submit" class="btn primary">Upload</button>

@@ -16,6 +16,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
 .video-meta{font-size:14px;color:var(--muted)}
 .comments{margin-top:6px;background:#fafcff;padding:8px;border-radius:8px}
 #comments-list{max-height:200px;overflow:auto;padding:6px;display:flex;flex-direction:column;gap:8px}
+#add-comment-result { font-weight: 600; margin-bottom: 6px; }
 .comment{background:#fff;padding:8px;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
 textarea{width:100%;min-height:60px;padding:8px;border-radius:8px;border:1px solid #ddd}
 input[type="text"], input[type="file"], select, input{padding:8px;border-radius:8px;border:1px solid #ddd;width:100%}
